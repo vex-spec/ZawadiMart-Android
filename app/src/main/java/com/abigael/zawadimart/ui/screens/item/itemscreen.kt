@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
@@ -42,7 +44,10 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.abigael.zawadimart.R
+import com.abigael.zawadimart.navigation.ROUT_HOME
 import com.abigael.zawadimart.ui.theme.newOrange
 import com.abigael.zawadimart.ui.theme.newred
 import com.abigael.zawadimart.ui.theme.newwhite
@@ -50,7 +55,7 @@ import com.abigael.zawadimart.ui.theme.newwhite
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ItemScreen(){
+fun ItemScreen(navController: NavController){
 
     Column (
         modifier = Modifier.fillMaxSize()
@@ -83,7 +88,7 @@ fun ItemScreen(){
         Image(
             painter = painterResource(R.drawable.baki),
             contentDescription = "tokita",
-            modifier = Modifier.fillMaxWidth().height(300.dp),
+            modifier = Modifier.fillMaxWidth().height(400.dp),
             contentScale = ContentScale.FillWidth
         )
         Spacer(modifier = Modifier.height(20.dp))
@@ -101,177 +106,354 @@ fun ItemScreen(){
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        //Row1
-        Row (modifier = Modifier.padding(start = 20.dp)) {
-            Image(
-                painter = painterResource(R.drawable.cypher),
-                contentDescription = "tokita",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
-
-            Spacer(modifier = Modifier.width(20.dp))
-
-            Column {
-                Text(
-                    text = "Latest anime",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+        Column (modifier = Modifier.verticalScroll(rememberScrollState())){
+            //Row1
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.cypher),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
                 )
 
+                Spacer(modifier = Modifier.width(20.dp))
 
-                Text(
-                    text = "Ticket fee then: ksh 600",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough,
-                )
-
-
-                Text(
-                    text = "Ticket fee now : ksh 500",
-                    fontSize = 15.sp,
+                Column {
+                    Text(
+                        text = "Latest anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
                     )
 
-                Row {
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+
+                    Text(
+                        text = "Ticket fee then: ksh 600",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
+
+
+                    Text(
+                        text = "Ticket fee now : ksh 500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {},
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
                 }
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(Color.Black),
-                    shape = RoundedCornerShape(10.dp)
-                )
-
-
-                {
-                    Text(text = "Contact us")
-                }
-
 
             }
+            //End of Row1
 
-        }
-        //End of Row1
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Spacer(modifier = Modifier.height(10.dp))
-
-        //Row2
-        Row (modifier = Modifier.padding(start = 20.dp)) {
-            Image(
-                painter = painterResource(R.drawable.img_3),
-                contentDescription = "tokita",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
-
-            Spacer(modifier = Modifier.width(20.dp))
-
-            Column {
-                Text(
-                    text = "Baki vs Ugiro anime",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+            //Row2
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.img_3),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
                 )
 
+                Spacer(modifier = Modifier.width(20.dp))
 
-                Text(
-                    text = "Ticket fee then: ksh 2000",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough,
-                )
+                Column {
+                    Text(
+                        text = "Baki vs Ugiro anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
 
 
-                Text(
-                    text = "Ticket fee now : ksh 1500",
-                    fontSize = 15.sp,
-                )
+                    Text(
+                        text = "Ticket fee then: ksh 2000",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
 
-                Row {
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+
+                    Text(
+                        text = "Ticket fee now : ksh 1500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {},
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
                 }
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(Color.Black),
-                    shape = RoundedCornerShape(10.dp)
-                )
-
-
-                {
-                    Text(text = "Contact us")
-                }
-
 
             }
+            //End of Row2
 
-        }
-        //End of Row2
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Spacer(modifier = Modifier.height(10.dp))
-
-        //Row3
-        Row (modifier = Modifier.padding(start = 20.dp)) {
-            Image(
-                painter = painterResource(R.drawable.img_2),
-                contentDescription = "tokita",
-                modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillWidth
-            )
-
-            Spacer(modifier = Modifier.width(20.dp))
-
-            Column {
-                Text(
-                    text = "Latest anime",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+            //Row3
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.img_2),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
                 )
 
+                Spacer(modifier = Modifier.width(20.dp))
 
-                Text(
-                    text = "Ticket fee : ksh 600",
-                    fontSize = 15.sp,
-                    textDecoration = TextDecoration.LineThrough,
-                )
+                Column {
+                    Text(
+                        text = "Latest anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
 
 
-                Text(
-                    text = "Ticket fee now : ksh 500",
-                    fontSize = 15.sp,
-                )
+                    Text(
+                        text = "Ticket fee : ksh 600",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
 
-                Row {
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
-                    Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+
+                    Text(
+                        text = "Ticket fee now : ksh 500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {
+                            navController.navigate(ROUT_HOME)
+                        },
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
                 }
-                Button(
-                    onClick = {},
-                    colors = ButtonDefaults.buttonColors(Color.Black),
-                    shape = RoundedCornerShape(10.dp)
-                )
-
-
-                {
-                    Text(text = "Contact us")
-                }
-
 
             }
+            //End of Row3
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            //Row4
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.cypher),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
+                )
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Column {
+                    Text(
+                        text = "Latest anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
+
+                    Text(
+                        text = "Ticket fee then: ksh 600",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
+
+
+                    Text(
+                        text = "Ticket fee now : ksh 500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {},
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
+                }
+
+            }
+            //End of Row4
+            Spacer(modifier = Modifier.height(10.dp))
+
+
+            //Row5
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.cypher),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
+                )
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Column {
+                    Text(
+                        text = "Latest anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
+
+                    Text(
+                        text = "Ticket fee then: ksh 600",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
+
+
+                    Text(
+                        text = "Ticket fee now : ksh 500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {},
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
+                }
+
+            }
+            //End of Row5
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+
+
+            //Row6
+            Row (modifier = Modifier.padding(start = 20.dp)) {
+                Image(
+                    painter = painterResource(R.drawable.cypher),
+                    contentDescription = "tokita",
+                    modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                    contentScale = ContentScale.FillWidth
+                )
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Column {
+                    Text(
+                        text = "Latest anime",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
+
+                    Text(
+                        text = "Ticket fee then: ksh 600",
+                        fontSize = 15.sp,
+                        textDecoration = TextDecoration.LineThrough,
+                    )
+
+
+                    Text(
+                        text = "Ticket fee now : ksh 500",
+                        fontSize = 15.sp,
+                    )
+
+                    Row {
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                        Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newred)
+                    }
+                    Button(
+                        onClick = {},
+                        colors = ButtonDefaults.buttonColors(Color.Black),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+
+
+                    {
+                        Text(text = "Contact us")
+                    }
+
+
+                }
+
+            }
+            //End of Row6
+
+
 
         }
-        //End of Row3
-
-
-
     }
 
 }
@@ -281,7 +463,7 @@ fun ItemScreen(){
 @Preview(showBackground = true)
 @Composable
 fun ItemScreenPreview(){
-    ItemScreen()
+    ItemScreen(rememberNavController())
 
 
 }
