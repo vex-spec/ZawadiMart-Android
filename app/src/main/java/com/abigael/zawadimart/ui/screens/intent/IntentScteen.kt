@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
@@ -32,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.abigael.zawadimart.navigation.ROUT_DASHBOARD
 import com.abigael.zawadimart.navigation.ROUT_ITEM
 import com.abigael.zawadimart.ui.theme.newOrange
 import com.abigael.zawadimart.ui.theme.newwhite
@@ -61,6 +63,11 @@ fun IntentScreen(navController: NavController){
                 }
                 IconButton(onClick = {}) {
                     Icon(imageVector = Icons.Default.Settings,contentDescription = "")
+                }
+                IconButton(onClick = {
+                    navController.navigate(ROUT_DASHBOARD)
+                }) {
+                    Icon(imageVector = Icons.Default.ArrowForward,contentDescription = "")
                 }
             }
 

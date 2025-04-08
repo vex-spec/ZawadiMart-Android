@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.abigael.zawadimart.ui.screens.about.AboutScreen
+import com.abigael.zawadimart.ui.screens.dashboard.DashboardScreen
 import com.abigael.zawadimart.ui.screens.home.HomeScreen
 import com.abigael.zawadimart.ui.screens.intent.IntentScreen
 import com.abigael.zawadimart.ui.screens.item.ItemScreen
@@ -38,8 +39,13 @@ fun AppNavHost(
         }
         composable(ROUT_INTENT) {
             IntentScreen(navController)
+        }
+        composable(ROUT_DASHBOARD) {
+            DashboardScreen(navController)
 
         }
+
+
 
     }
 }
