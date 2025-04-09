@@ -11,13 +11,14 @@ import com.abigael.zawadimart.ui.screens.dashboard.DashboardScreen
 import com.abigael.zawadimart.ui.screens.home.HomeScreen
 import com.abigael.zawadimart.ui.screens.intent.IntentScreen
 import com.abigael.zawadimart.ui.screens.item.ItemScreen
+import com.abigael.zawadimart.ui.screens.service.ServiceScreen
 import com.abigael.zawadimart.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_HOME
+    startDestination: String = ROUT_DASHBOARD
 ) {
 
     NavHost(
@@ -44,6 +45,13 @@ fun AppNavHost(
             DashboardScreen(navController)
 
         }
+        composable(ROUT_SERVICE) {
+            ServiceScreen(navController)
+
+        }
+
+
+
 
 
 

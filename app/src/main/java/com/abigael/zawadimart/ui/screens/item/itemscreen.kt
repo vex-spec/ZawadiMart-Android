@@ -160,7 +160,7 @@ fun ItemScreen(navController: NavController){
                     Button(
                         onClick = {
                             val callIntent= Intent(Intent.ACTION_DIAL)
-                            callIntent.data="tel:0720245837".toUri()
+                            callIntent.data="tel:0715833093".toUri()
                             mContext.startActivity(callIntent)
 
                         },

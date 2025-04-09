@@ -98,7 +98,7 @@ fun IntentScreen(navController: NavController){
         Button(
             onClick = {
                 val callIntent=Intent(Intent.ACTION_DIAL)
-                callIntent.data="tel:0720245837".toUri()
+                callIntent.data="tel:0715833093".toUri()
                 mContext.startActivity(callIntent)
             },
             colors = ButtonDefaults.buttonColors(Color.Black),
@@ -117,8 +117,8 @@ fun IntentScreen(navController: NavController){
         Button(
             onClick = {
                 val smsIntent=Intent(Intent.ACTION_SENDTO)
-                smsIntent.data="smsto:0720245837".toUri()
-                smsIntent.putExtra("sms_body","Hello Glory,how was your day?")
+                smsIntent.data="smsto:0715833093".toUri()
+                smsIntent.putExtra("sms_body","Hello ABY,how was your day?")
                 mContext.startActivity(smsIntent)
             },
             colors = ButtonDefaults.buttonColors(Color.Black),
@@ -180,7 +180,7 @@ fun IntentScreen(navController: NavController){
             onClick = {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
-                shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("akinyiglory2@gmail.com"))
+                shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("ruoroabigael@gmail.com"))
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
                 shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
                 mContext.startActivity(shareIntent)
