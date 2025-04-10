@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.abigael.zawadimart.R
+import com.abigael.zawadimart.navigation.ROUT_DASHBOARD
 import com.abigael.zawadimart.navigation.ROUT_ITEM
 import com.abigael.zawadimart.ui.theme.newOrange
 
@@ -72,7 +73,7 @@ fun StartScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
         Button(
             onClick = {
-                navController.navigate(ROUT_ITEM)
+                navController.navigate(ROUT_DASHBOARD)
             },
             colors = ButtonDefaults.buttonColors(Color.Black),
             shape = RoundedCornerShape(10.dp),
