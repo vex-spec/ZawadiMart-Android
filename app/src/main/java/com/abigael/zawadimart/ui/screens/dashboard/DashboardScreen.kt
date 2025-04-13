@@ -43,6 +43,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.abigael.zawadimart.R
 import com.abigael.zawadimart.navigation.ROUT_ABOUT
+import com.abigael.zawadimart.navigation.ROUT_CRYPTOCURRENCY
 import com.abigael.zawadimart.navigation.ROUT_DASHBOARD
 import com.abigael.zawadimart.navigation.ROUT_HOME
 import com.abigael.zawadimart.navigation.ROUT_INTENT
@@ -79,7 +80,7 @@ fun DashboardScreen(navController: NavController){
 
 
                         IconButton(onClick = {
-                            navController.navigate(ROUT_HOME)
+                            navController.navigate(ROUT_CRYPTOCURRENCY)
                         }) {
                             Icon(imageVector = Icons.Default.ArrowForward,contentDescription = "")
                         }

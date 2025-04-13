@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.abigael.zawadimart.ui.screens.about.AboutScreen
 import com.abigael.zawadimart.ui.screens.cryptocurrency.CryptocurrencyScreen
 import com.abigael.zawadimart.ui.screens.dashboard.DashboardScreen
+import com.abigael.zawadimart.ui.screens.form.FormScreen
 import com.abigael.zawadimart.ui.screens.home.HomeScreen
 import com.abigael.zawadimart.ui.screens.intent.IntentScreen
 import com.abigael.zawadimart.ui.screens.item.ItemScreen
@@ -57,6 +58,10 @@ fun AppNavHost(
         }
         composable(ROUT_CRYPTOCURRENCY) {
             CryptocurrencyScreen(navController)
+
+        }
+        composable(ROUT_FORM) {
+            FormScreen(navController)
 
         }
 
