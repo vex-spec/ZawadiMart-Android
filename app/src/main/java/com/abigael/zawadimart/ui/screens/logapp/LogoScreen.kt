@@ -7,6 +7,8 @@ import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+
+
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -72,37 +74,46 @@ fun FormScreen(navController: NavController){
         modifier = Modifier.fillMaxSize()
 
     ){
-        Box(modifier = Modifier.paint(painter = painterResource(R.drawable.star),contentScale = ContentScale.FillBounds)) {
+        Box(
+
+        )
+        {
             Card(
+
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(400.dp),
-
-
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
+                colors = CardDefaults.cardColors(newblue)
 
                 ) {
                 Row(
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.img_11),
+                        painter = painterResource(R.drawable.app),
                         contentDescription = "tokita",
-                        modifier = Modifier.size(70.dp),
+                        modifier = Modifier.size(100.dp).background(color = newblue),
+
 
                         )
                     Spacer(modifier = Modifier.width(20.dp))
-                    Text(text = "Logo App")
+                    Text(
+                        text = "Logo App",
+                        fontSize = 30.sp,
+                        color = Color.White
+                    )
                 }
                 Spacer(modifier = Modifier.height(80.dp))
 
                 Image(
 
-                    painter = painterResource(R.drawable.food),
+                    painter = painterResource(R.drawable.jotoro),
                     contentDescription = "tokita",
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                         .size(width = 200.dp, height = 200.dp)
-                        .background(color = Color.Blue),
+                        .background(Color.LightGray)
+                        ,
 
 
                     contentScale = ContentScale.FillWidth
@@ -208,24 +219,24 @@ fun FormScreen(navController: NavController){
                 )
 
             }
+            Spacer(modifier = Modifier.height(10.dp))
 
 
 
+            Row {
+                Text(
+                    text = "To be a Member?",
+                    modifier = Modifier.padding(20.dp),
 
 
+                )
+                Text(
+                    text = "Log in",
 
+                    color = Color.Red
 
-
-
-
-
-
-
-
-
-
-
-
+                )
+            }
 
 
         }
