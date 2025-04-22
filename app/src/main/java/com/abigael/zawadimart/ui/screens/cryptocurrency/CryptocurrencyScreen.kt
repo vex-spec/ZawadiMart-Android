@@ -72,6 +72,7 @@ import com.abigael.zawadimart.ui.theme.newblue
 import com.abigael.zawadimart.ui.theme.newgreen
 import com.abigael.zawadimart.ui.theme.newgrey
 import com.abigael.zawadimart.ui.theme.newred
+import com.abigael.zawadimart.ui.theme.newtt
 import com.abigael.zawadimart.ui.theme.newwhite
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -348,7 +349,7 @@ fun CryptocurrencyScreen(navController: NavController){
                 Card (
                     modifier = Modifier.fillMaxWidth().height(300.dp),
                     shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp, topStart = 17.dp, topEnd = 20.dp),
-                    colors = CardDefaults.cardColors(newgrey)
+                    colors = CardDefaults.cardColors(newtt)
                 ){
                     Column() {
                         Text(
